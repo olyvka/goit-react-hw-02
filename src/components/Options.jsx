@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 
 function Options({ updateFeedback, totalFeedback, handleReset }) {
   return (

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Feedback from "./Feedback";
-import Options from "./Options";
-import Notification from "./Notification";
+import Feedback from "./components/Feedback";
+import Options from "./components/Options";
+import Notification from "./components/Notification";
+import "./App.css";
 
 function App() {
   const initialFeedbackCounts = {
