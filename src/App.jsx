@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Feedback from "./components/Feedback";
 import Options from "./components/Options";
 import Notification from "./components/Notification";
+import Description from "./components/Description";
 import "./App.css";
 
 function App() {
@@ -46,22 +47,21 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Sip Happens Café</h1>
-      <p>
-        Please leave your feedback about our service by selecting one of the
-        options below.
-      </p>
-      <Feedback
-        feedbackCounts={feedbackCounts}
-        totalFeedback={totalFeedback}
-        positivePercentage={positivePercentage}
-      />
+      <Description />
+      {totalFeedback > 0 ? (
+        <Feedback
+          feedbackCounts={feedbackCounts}
+          totalFeedback={totalFeedback}
+          positivePercentage={positivePercentage}
+        />
+      ) : (
+        <Notification message="No feedback given yet." />
+      )}
       <Options
         updateFeedback={updateFeedback}
         totalFeedback={totalFeedback}
         handleReset={handleReset}
-      />
-      {totalFeedback === 0 && <Notification message="No feedback given yet." />}
+        />
     </div>
   );
 }
